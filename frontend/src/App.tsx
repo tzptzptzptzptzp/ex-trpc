@@ -18,7 +18,13 @@ function App() {
       ],
     })
   );
-  return <div>TodoList</div>;
+  return (
+    <trpc.Provider client={trpcClient} queryClient={queryClient}>
+      <QueryClientProvider client={queryClient}>
+        <div>tRPC Todo List</div>
+      </QueryClientProvider>
+    </trpc.Provider>
+  );
 }
 
 export default App;
