@@ -1,6 +1,7 @@
 import express from "express";
 import { initTRPC } from "@trpc/server";
 import * as trpcExpress from "@trpc/server/adapters/express";
+import { TodoList } from "./db/TodoList";
 
 const app = express();
 
@@ -15,6 +16,9 @@ const publicProcedure = t.procedure;
 const appRouter = router({
   test: publicProcedure.query(() => {
     return "TEST tRPC";
+  }),
+  getTodos: publicProcedure.query(() => {
+    return TodoList;
   }),
 });
 
