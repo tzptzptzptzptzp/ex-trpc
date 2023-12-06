@@ -1,9 +1,9 @@
 import { useState } from "react";
-import "./App.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink } from "@trpc/client";
 
 import { trpc } from "./utils/trpc";
+import { TodoList } from "./Components/TodoList";
 
 const URL = "http://localhost:2222/:";
 
@@ -21,7 +21,7 @@ function App() {
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
-        <div>tRPC Todo List</div>
+        <TodoList />
       </QueryClientProvider>
     </trpc.Provider>
   );

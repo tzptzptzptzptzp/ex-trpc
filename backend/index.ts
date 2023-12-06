@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import { initTRPC } from "@trpc/server";
 import * as trpcExpress from "@trpc/server/adapters/express";
 import { TodoList } from "./db/TodoList";
@@ -6,6 +7,8 @@ import { TodoList } from "./db/TodoList";
 const app = express();
 
 const PORT = 2222;
+
+app.use(cors());
 
 app.get("/", (req, res) => res.send("Hello World"));
 
