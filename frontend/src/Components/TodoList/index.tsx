@@ -61,6 +61,7 @@ const styles: { [key: string]: CSSProperties } = {
 export const TodoList = () => {
   const test = trpc.test.useQuery();
   console.log(test.data);
+  const allTodos = trpc.getTodos.useQuery();
   return (
     <div style={styles.container}>
       <div style={styles.innerContainer}>
@@ -72,10 +73,12 @@ export const TodoList = () => {
         />
         <button style={styles.addButton}>Add Todo</button>
         <ul style={styles.list}>
-          <li style={styles.listItem}>
-            TRPCの勉強
-            <span style={styles.deleteButton}>✖</span>
-          </li>
+          {allTodos.data?.map((todo) => (
+            <li style={styles.listItem}>
+              {todo.content}
+              <span style={styles.deleteButton}>✖</span>
+            </li>
+          ))}
         </ul>
       </div>
     </div>

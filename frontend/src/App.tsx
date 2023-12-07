@@ -5,7 +5,7 @@ import { httpBatchLink } from "@trpc/client";
 import { trpc } from "./utils/trpc";
 import { TodoList } from "./Components/TodoList";
 
-const URL = "http://localhost:2222/:";
+const URL = "http://localhost:2222/";
 
 function App() {
   const [queryClient] = useState(() => new QueryClient());
