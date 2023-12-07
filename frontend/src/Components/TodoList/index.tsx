@@ -61,6 +61,7 @@ const styles: { [key: string]: CSSProperties } = {
 export const TodoList = () => {
   const test = trpc.test.useQuery();
   console.log(test.data);
+  const allTodos = trpc.getTodos.useQuery();
   return (
     <div style={styles.container}>
       <div style={styles.innerContainer}>
