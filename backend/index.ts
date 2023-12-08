@@ -2,7 +2,11 @@ import express from "express";
 import cors from "cors";
 import { initTRPC } from "@trpc/server";
 import * as trpcExpress from "@trpc/server/adapters/express";
+import { z } from "zod";
+import { v4 as uuidv4 } from "uuid";
+
 import { TodoList } from "./db/TodoList";
+import { TodoType } from "./db/TodoList/type";
 
 const app = express();
 
@@ -21,6 +25,15 @@ const appRouter = router({
     return "TEST tRPC";
   }),
   getTodos: publicProcedure.query(() => {
+    return TodoList;
+  }),
+  addTodo: publicProcedure.input(z.string()).mutation((req) => {
+    const id = uuidv4();
+    const todo: TodoType = {
+      id,
+      content: req.input,
+    };
+    TodoList.push(todo);
     return TodoList;
   }),
 });
