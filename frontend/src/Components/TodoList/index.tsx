@@ -66,7 +66,11 @@ export const TodoList = () => {
 
   const allTodos = trpc.getTodos.useQuery();
 
-  const addTodo = trpc.addTodo.useMutation();
+  const addTodo = trpc.addTodo.useMutation({
+    onSettled: () => {
+      allTodos.refetch();
+    },
+  });
   return (
     <div style={styles.container}>
       <div style={styles.innerContainer}>
