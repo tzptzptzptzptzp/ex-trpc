@@ -82,11 +82,13 @@ export const TodoList = () => {
           onChange={(e) => {
             setInputValue(e.target.value);
           }}
+          value={inputValue}
         />
         <button
           style={styles.addButton}
           onClick={() => {
             addTodo.mutate(inputValue);
+            setInputValue("");
           }}
         >
           Add Todo
