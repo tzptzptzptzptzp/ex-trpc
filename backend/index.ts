@@ -36,6 +36,14 @@ const appRouter = router({
     TodoList.push(todo);
     return TodoList;
   }),
+  deleteTodo: publicProcedure.input(z.string()).mutation((req) => {
+    const idTodoDelete = req.input;
+    const indexToDelete = TodoList.findIndex(
+      (todo) => todo.id === idTodoDelete
+    );
+    TodoList.splice(indexToDelete, 1);
+    return TodoList;
+  }),
 });
 
 app.use(
