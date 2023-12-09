@@ -75,6 +75,12 @@ export const TodoList = () => {
       allTodos.refetch();
     },
   });
+
+  const deleteTodo = trpc.deleteTodo.useMutation({
+    onSettled: () => {
+      allTodos.refetch();
+    },
+  });
   return (
     <div style={styles.container}>
       <div style={styles.innerContainer}>
@@ -101,7 +107,14 @@ export const TodoList = () => {
           {allTodos.data?.map((todo) => (
             <li style={styles.listItem}>
               {todo.content}
-              <span style={styles.deleteButton}>✖</span>
+              <span
+                style={styles.deleteButton}
+                onClick={() => {
+                  deleteTodo.mutate(todo.id);
+                }}
+              >
+                ✖
+              </span>
             </li>
           ))}
         </ul>
