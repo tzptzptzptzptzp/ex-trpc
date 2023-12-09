@@ -10,6 +10,8 @@ const styles: { [key: string]: CSSProperties } = {
     backgroundColor: "#cba471",
   },
   innerContainer: {
+    display: "flex",
+    flexDirection: "column",
     width: "50%",
     height: "50%",
     padding: "20px",
@@ -32,6 +34,8 @@ const styles: { [key: string]: CSSProperties } = {
     outline: "none",
   },
   list: {
+    overflowY: "scroll",
+    height: "100%",
     listStyleType: "none",
   },
   listItem: {
