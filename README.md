@@ -25,3 +25,33 @@ npm
 cd frontend
 npm run dev
 ```
+
+---
+
+## Introduction
+
+This is a TodoList application built using React and Express.  
+It efficiently retrieves data using tRPC.
+
+## Technologies Used
+
+- [React](https://reactjs.org/)
+- [tRPC](https://trpc.io/)
+- [Node.js](https://nodejs.org/)
+- [Express](https://expressjs.com/)
+
+## Development Procedure
+
+We use npm for development.
+
+```bash
+// Start the backend
+npm
+cd backend
+npm run dev
+
+// Start the frontend
+npm
+cd frontend
+npm run dev
+```
